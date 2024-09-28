@@ -1,0 +1,3 @@
+- Returns the same option as if users choose "No" - You've chosen: No.
+- JOptionPane.showOptionDialog(parentComponent, message, title, title, optionType, messageType, icon, options, init value)
+Either modify Object[] options or int optionType. 
