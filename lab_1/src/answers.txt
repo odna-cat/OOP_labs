@@ -1,0 +1,27 @@
+2.2.5
+- Takes the two numbers as input, and a character for the operator.
+- Parses the numbers as doubles, and run switch-case for each operation. For division, check if divisor is 0. If yes, throw error.
+2.2.6
+- Takes input for which type of equation to solve on console.
+- Input each of the constants. For first-degree single variable equations, both cases where a==0 and a!= 0 are handled.
+- For linear system of two variables in first degree, this assumes the system is in form a11*x1+a12*x2=b1; a21*x1+a22*x2=b2. Solves using Cramer's Rule: calculate determinants and behave accordingly.
+- For second-degree single variable equation, outputs discriminant. Assumes real roots.
+6.1
+- Returns the same option as if users choose "No" - You've chosen: No.
+- JOptionPane.showOptionDialog(parentComponent, message, title, title, optionType, messageType, icon, options, init value)
+Either modify Object[] options or int optionType.
+6.2
+- Scanner takes in input strName for name, int iAge for age, double dHeight for height.
+- Returns values in console.
+6.3
+- Recursive printing of spacing and stars.
+6.4
+- ifLeap checks for leap year validity. Only affects February.
+- Make list for each month, two lists of lists for months that have 30 and 31 days respectively. If input is in the flattened list, return values 30 or 31.
+- February checks ifLeap then returns 28 or 29.
+6.5
+- Iterates through array to print the original array, the sorted array.
+- Similarly iterates through array to find sum and average.
+6.6
+- double[][] emulates a 2D matrix.
+- Adds sum[i][j] iteratively.
