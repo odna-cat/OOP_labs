@@ -1,0 +1,4 @@
+Reading Assignment: When should accessor methods be used?
+
+Answer 1: Getter and setter methods are used to access and modify attributes of an object. This is inefficient at best and violates OOP principles (Abstraction and Encapsulation) at worst.
+Answer 2: Accessors should be used to return an object in terms of an interface that the object implements because the interface isolates you from changes to the implementing class.
