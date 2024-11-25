@@ -1,4 +1,5 @@
-// import java.util.Scanner;
+package lab01;
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Ex225 {

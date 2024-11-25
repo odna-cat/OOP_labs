@@ -1,3 +1,4 @@
+package lab01;
 public class MatrixSums {
     public static void main(String[] args) {
         // constant two matrices
