@@ -1,5 +1,5 @@
 package test.disc;
-import main.disc.DigitalVideoDisc;
+import main.media.DigitalVideoDisc;
 
 public class TestPassingParameter {
     
@@ -21,9 +21,9 @@ public class TestPassingParameter {
         o2 = tmp;
     }
 
-    public static void changeTitle(DigitalVideoDisc dvd, String title) {
-        String oldTitle = dvd.getTitle();
-        dvd.setTitle(title);
-        dvd = new DigitalVideoDisc(oldTitle);
+    public static void changeTitle(DigitalVideoDisc dvd, String newTitle) {
+        // String oldTitle = dvd.getTitle();
+        dvd.setTitle(newTitle);
+        // dvd = new DigitalVideoDisc(oldTitle);
     }
 }

@@ -1,14 +1,14 @@
 package main.store;
 import java.util.ArrayList;
-import main.disc.DigitalVideoDisc;
+import main.media.Media;
 
 public class Store {
-    ArrayList<DigitalVideoDisc> itemsInStore;
+    ArrayList<Media> itemsInStore;
     
-    public void addDVD(DigitalVideoDisc dvd) {
-        itemsInStore.add(dvd);
+    public void addItem(Media item) {
+        itemsInStore.add(item);
     }
-    public void removeDVD(DigitalVideoDisc dvd) {
-        itemsInStore.remove(dvd);
+    public void removeItem(Media item) {
+        itemsInStore.remove(item);
     }
 }
