@@ -46,6 +46,7 @@ public class Cart {
             System.out.println("Item removed from cart.");
         }
     }
+
     public float totalCost() {
         float sum = 0;
         for (Media item : itemsOrdered)
@@ -53,49 +54,44 @@ public class Cart {
         return sum;
     }
 
-    public void searchID(int id) {
+    public List<Media> searchID(int id) {
         List<Media> results = new ArrayList<>();
         for (Media item : itemsOrdered) {
             if (item.getId() == id)
                 results.add(item);
         }
-        if (!results.isEmpty()) {
-            System.out.println("Search results for items with ID " + id + ": ");
-            for (int i = 0; i < results.size(); i++) {
-                System.out.println(results.get(i).toString());
-            }
-        } else {
-            System.out.println("No matching results.");
-        }
+        return results;
     }
-
-    public void searchTitle(String title) {
+    public List<Media> searchTitle(String title) {
         List<Media> results = new ArrayList<>();
         for (Media item : itemsOrdered) {
             if (item.isMatch(title))
                 results.add(item);
         }
-        if (!results.isEmpty()) {
-            System.out.println("Search results for items with title" + title + ": ");
-            for (int i = 0; i < results.size(); i++) {
-                System.out.println(results.get(i).toString());
-            }
-        } else {
-            System.out.println("No matching results.");
-        }
+        return results;
     }
 
+    public void sortByTitleCost() {
+        Collections.sort(this.itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        this.print();
+    }
+    public void sortByCostTitle() {
+        Collections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        this.print();
+    }
 
     public void print() {
         System.out.println("***********************CART*********************** ");
-        System.out.println("Ordered items:");
-        // for (int i = 0; i < qtyOrdered; i++) {
-        //     System.out.println((i+1) + ". " + itemsOrdered[i].toString());
-        // }
-        for (Media item : itemsOrdered) {
-            item.toString();
-        }
-        System.out.println("Total cost: " + totalCost());
+        if (!itemsOrdered.isEmpty()) {
+            System.out.println("Ordered items:");
+            for (Media item : itemsOrdered) {
+                item.toString();
+            }
+            System.out.println("Total cost: " + totalCost());
+        } else {System.out.println("Nothing has been added to cart yet.");}
         System.out.println("*************************************************** ");
+    }
+    public void clear() {
+        this.itemsOrdered.clear();
     }
 }

@@ -31,5 +31,4 @@ public class Disc extends Media {
     public void setDirector(String newDirector) {
         this.director = newDirector;
     }
-
 }

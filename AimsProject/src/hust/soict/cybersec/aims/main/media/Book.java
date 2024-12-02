@@ -10,6 +10,9 @@ public class Book extends Media {
     super(title, category, cost);
     this.authors = authors;
    }
+   public Book(String title) {
+    super(title);
+   }
 
    // getters and setters
    public List<String> getAuthors() {
