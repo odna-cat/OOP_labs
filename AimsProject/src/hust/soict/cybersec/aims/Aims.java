@@ -1,12 +1,14 @@
+package hust.soict.cybersec.aims;
+
+import hust.soict.cybersec.aims.cart.Cart;
+import hust.soict.cybersec.aims.media.*;
+import hust.soict.cybersec.aims.store.Store;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import main.cart.Cart;
-import main.media.*;
-import main.store.Store;
 
-public class Aims{
+public class Aims {
     public static void main(String[] args) throws Exception {
         Store store = new Store();
         Cart cart = new Cart();
@@ -16,9 +18,10 @@ public class Aims{
     public static int intInput() {
         @SuppressWarnings("resource") // Delete later
         Scanner scan = new Scanner(System.in);
-            int option = scan.nextInt();
-            return option;
+        int option = scan.nextInt();
+        return option;
     }
+
     public static String strInput() {
         @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in);
@@ -36,7 +39,7 @@ public class Aims{
         System.out.println("--------------------------------");
         System.out.println("Please choose a number: 0-1-2-3");
         int option = intInput();
-        switch(option) {
+        switch (option) {
             case 1 -> storeMenu(store, cart);
             case 2 -> {
                 storeUpdate(store);
@@ -50,6 +53,7 @@ public class Aims{
             default -> throw new IOException();
         }
     }
+
     public static void storeUpdate(Store store) throws IOException {
         System.out.println("Options");
         System.out.println("--------------------------------");
@@ -83,17 +87,20 @@ public class Aims{
                         DigitalVideoDisc dvd = new DigitalVideoDisc(strInput());
                         store.addItem(dvd);
                     }
-                    case 0 -> {}
+                    case 0 -> {
+                    }
                 }
                 storeUpdate(store);
             }
             case 2 -> {
                 store.removeItem(getSearchResult(search(store)));
             }
-            case 0 -> {}
+            case 0 -> {
+            }
             default -> throw new IOException();
         }
     }
+
     public static void storeMenu(Store store, Cart cart) throws IOException {
         store.print();
         System.out.println("Options: ");
@@ -106,7 +113,7 @@ public class Aims{
         System.out.println("--------------------------------");
         System.out.println("Please choose a number: 0-1-2-3-4");
         int option = intInput();
-        switch(option) {
+        switch (option) {
             case 1 -> mediaDetailsMenu(getSearchResult(search(cart)), cart);
             case 2 -> cart.addMedia(getSearchResult(search(cart)));
             case 3 -> play(getSearchResult(search(store)));
@@ -115,6 +122,7 @@ public class Aims{
             default -> throw new IOException();
         }
     }
+
     public static void mediaDetailsMenu(Media item, Cart cart) throws IOException {
         System.out.println(item.toString());
         System.out.println("Options");
@@ -136,10 +144,12 @@ public class Aims{
                     cd.play();
                 }
             }
-            case 0 -> {}
+            case 0 -> {
+            }
             default -> throw new IOException();
         }
     }
+
     public static void cartMenu(Cart cart) throws IOException {
         cart.print();
         System.out.println("Options");
@@ -174,10 +184,12 @@ public class Aims{
                 cartMenu(cart);
             }
             case 5 -> placeOrder(cart);
-            case 0 -> {}
+            case 0 -> {
+            }
             default -> throw new IOException();
         }
     }
+
     public static void placeOrder(Cart cart) {
         System.out.println("Your order has been placed.");
         cart.clear();
@@ -198,16 +210,18 @@ public class Aims{
                 System.out.println("Enter search ID: ");
                 int id = intInput();
                 printSearchResults(cart.searchID(id));
-                }
+            }
             case 2 -> {
                 System.out.println("Enter search title: ");
                 String title = strInput();
                 printSearchResults(cart.searchTitle(title));
-                }
-            case 0 -> {}
+            }
+            case 0 -> {
+            }
             default -> throw new IOException();
         }
     }
+
     public static void sort(Cart cart) throws IOException {
         System.out.println("Sort by:");
         System.out.println("--------------------------------");
@@ -220,10 +234,12 @@ public class Aims{
         switch (option1) {
             case 1 -> cart.sortByTitleCost();
             case 2 -> cart.sortByCostTitle();
-            case 0 -> {}
+            case 0 -> {
+            }
             default -> throw new IOException();
         }
     }
+
     public static List<Media> search(Cart cart) {
         System.out.println("Search by: ");
         System.out.println("1. Title");
@@ -242,10 +258,12 @@ public class Aims{
                 int id = intInput();
                 results = cart.searchID(id);
             }
-            case 0 -> {}
+            case 0 -> {
+            }
         }
         return results;
     }
+
     public static List<Media> search(Store store) {
         System.out.println("Search by: ");
         System.out.println("--------------------------------");
@@ -265,10 +283,12 @@ public class Aims{
                 int id = intInput();
                 results = store.searchID(id);
             }
-            case 0 -> {}
+            case 0 -> {
+            }
         }
         return results;
     }
+
     public static void play(Media item) {
         if (item instanceof DigitalVideoDisc dvd)
             dvd.play();
@@ -276,7 +296,8 @@ public class Aims{
             cd.play();
         if (!(item instanceof DigitalVideoDisc) && !(item instanceof CompactDisc))
             System.out.println("Something went wrong.");
-    } 
+    }
+
     public static Media getSearchResult(List<Media> results) {
         if (!results.isEmpty()) {
             System.out.println("Input index of item you want");
@@ -284,8 +305,11 @@ public class Aims{
                 int index = scan.nextInt();
                 return results.get(index);
             }
-        } else {return null;}
+        } else {
+            return null;
+        }
     }
+
     public static void printSearchResults(List<Media> results) {
         if (!results.isEmpty()) {
             System.out.println("Search results matching your query: ");

@@ -1,4 +1,5 @@
-package test.store;
+package hust.soict.cybersec.aims.test.store;
+
 public class StoreTest {
-    
+
 }
